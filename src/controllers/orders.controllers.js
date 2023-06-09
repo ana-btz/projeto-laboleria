@@ -100,7 +100,6 @@ export async function getAllOrders(req, res) {
 
 export async function getOrderById(req, res) {
   const { id } = req.params;
-  console.log(id);
   try {
     const order = await findOrderById(id);
     if (order.rowCount === 0)

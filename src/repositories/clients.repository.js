@@ -7,3 +7,7 @@ export function insertClientDB(body) {
     [name, address, phone]
   );
 }
+
+export function findClientOrders(id) {
+  return db.query(`SELECT * from orders WHERE "clientId" = $1`, [id]);
+}
