@@ -26,3 +26,7 @@ export function findOrderDateById(id) {
     [id]
   );
 }
+
+export function findOrderById(id) {
+  return db.query(`SELECT * FROM orders WHERE id = $1`, [id]);
+}
