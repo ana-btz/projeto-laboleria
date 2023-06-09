@@ -14,3 +14,15 @@ export function insertOrderDB(clientId, cakeId, quantity, totalPrice) {
     [clientId, cakeId, quantity, totalPrice]
   );
 }
+
+export function findAllOrders() {
+  return db.query(`SELECT * FROM orders`);
+}
+
+export function findOrderDateById(id) {
+  return db.query(
+    `SELECT ("createdAt") as ExistingDateformat,
+          to_char("createdAt",'YYYY-MM-DD HH:MI') As NewDateFormat FROM orders Where id = $1;`,
+    [id]
+  );
+}
